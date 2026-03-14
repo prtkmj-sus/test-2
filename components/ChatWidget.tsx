@@ -36,7 +36,10 @@ export const ChatWidget: React.FC = () => {
     setInput('');
     setIsLoading(true);
 
-    const responseText = await chatWithBot(messages, input, products);
+    let responseText = await chatWithBot(messages, input, products);
+
+// remove markdown stars
+responseText = responseText.replace(/\*\*/g, "");
 
     const botMsg: ChatMessage = {
       id: (Date.now() + 1).toString(),
