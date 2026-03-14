@@ -38,15 +38,15 @@ export const ChatWidget: React.FC = () => {
 
     let responseText = await chatWithBot(messages, input, products);
 
-// remove markdown stars
-responseText = responseText.replace(/\*\*/g, "");
+// remove markdown ** and * from AI response
+responseText = responseText.replace(/\*\*/g, '').replace(/\*/g, '');
 
-    const botMsg: ChatMessage = {
-      id: (Date.now() + 1).toString(),
-      role: 'model',
-      text: responseText,
-      timestamp: Date.now()
-    };
+const botMsg: ChatMessage = {
+  id: (Date.now() + 1).toString(),
+  role: 'model',
+  text: responseText,
+  timestamp: Date.now()
+};
 
     setMessages(prev => [...prev, botMsg]);
     setIsLoading(false);
