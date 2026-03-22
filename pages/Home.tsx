@@ -51,7 +51,7 @@ export const Home: React.FC = () => {
           
           <h1 className="text-4xl sm:text-6xl font-bold tracking-tight mb-6">
             Networking Solutions for <br/>
-            <span className="text-secondary">
+            <span>
               The Future
             </span>
           </h1>
